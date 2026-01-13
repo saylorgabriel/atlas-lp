@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ATLAS - WhatsApp AI Copilot. Inteligência artificial integrada ao WhatsApp para análise de conversas e insights em tempo real.">
+  <meta name="keywords" content="ATLAS, WhatsApp, AI, Copilot, inteligência artificial, análise de conversas">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ATLAS - WhatsApp AI Copilot">
+  <meta property="og:description" content="Transforme suas conversas do WhatsApp com inteligência artificial. Insights em tempo real, respostas contextuais e análise inteligente.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ATLAS - WhatsApp AI Copilot">
+  <meta name="twitter:description" content="Transforme suas conversas do WhatsApp com inteligência artificial.">
+
+  <title>ATLAS - WhatsApp AI Copilot</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Noise Overlay -->
+  <div class="noise"></div>
+
+  <!-- Gradient Background -->
+  <div class="gradient-bg"></div>
+
+  <!-- Cursor Glow (desktop only) -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-brand">
+      <span class="brand-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
+        </svg>
+      </span>
+      <span class="brand-text">ATLAS</span>
+    </div>
+    <div class="nav-links">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#how-it-works" class="nav-link">Como Funciona</a>
+      <a href="#metrics" class="nav-link">Performance</a>
+    </div>
+    <a href="#cta" class="nav-cta">
+      <span>Começar</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>WhatsApp AI Copilot</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="title-line">Inteligência</span>
+          <span class="title-line accent">Contextual</span>
+          <span class="title-line">no WhatsApp</span>
+        </h1>
+
+        <p class="hero-description">
+          Transforme suas conversas em insights acionáveis.
+          ATLAS analisa, responde e monitora suas conversas
+          do WhatsApp com IA de última geração.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#cta" class="btn-primary">
+            <span>Começar Agora</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#how-it-works" class="btn-secondary">
+            <span>Ver Demonstração</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-value">23ms</span>
+            <span class="stat-label">Busca</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-value">90%</span>
+            <span class="stat-label">Economia</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-value">95%</span>
+            <span class="stat-label">Precisão</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="terminal">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span class="terminal-title">WhatsApp</span>
+          </div>
+          <div class="terminal-body">
+            <div class="message incoming">
+              <span class="message-author">João</span>
+              <span class="message-text">Atlas: resumo das últimas 50 mensagens</span>
+              <span class="message-time">14:32</span>
+            </div>
+            <div class="message outgoing typing" id="atlasResponse">
+              <span class="message-author">🤖 ATLAS</span>
+              <span class="message-text">
+                <span class="typing-indicator">
+                  <span></span><span></span><span></span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="floating-card fc-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+          </svg>
+          <span>Insights</span>
+        </div>
+
+        <div class="floating-card fc-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+          <span>23ms</span>
+        </div>
+
+        <div class="floating-card fc-3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+          <span>Seguro</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="section-header">
+        <span class="section-tag">01 / Recursos</span>
+        <h2 class="section-title">Recursos que transformam</h2>
+        <p class="section-description">
+          Cada funcionalidade foi projetada para maximizar
+          a inteligência das suas conversas.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card" data-feature="1">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Chat Natural</h3>
+          <p class="feature-description">
+            Converse naturalmente com o ATLAS direto no WhatsApp.
+            Basta mencionar "Atlas:" e fazer sua pergunta.
+          </p>
+          <div class="feature-tag">Linguagem Natural</div>
+        </div>
+
+        <div class="feature-card" data-feature="2">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Busca Híbrida</h3>
+          <p class="feature-description">
+            Combina BM25 keyword search com embeddings vetoriais
+            para resultados precisos em milissegundos.
+          </p>
+          <div class="feature-tag">23ms Response</div>
+        </div>
+
+        <div class="feature-card" data-feature="3">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Insights Proativos</h3>
+          <p class="feature-description">
+            Detecta automaticamente padrões, sentimentos e
+            oportunidades nas suas conversas.
+          </p>
+          <div class="feature-tag">Real-time</div>
+        </div>
+
+        <div class="feature-card" data-feature="4">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Transcrição de Áudio</h3>
+          <p class="feature-description">
+            Transcreve mensagens de voz automaticamente com
+            Whisper, 90% mais barato via Groq.
+          </p>
+          <div class="feature-tag">90% Economia</div>
+        </div>
+
+        <div class="feature-card" data-feature="5">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Action Items</h3>
+          <p class="feature-description">
+            Extrai automaticamente tarefas e compromissos
+            mencionados nas conversas.
+          </p>
+          <div class="feature-tag">Automático</div>
+        </div>
+
+        <div class="feature-card" data-feature="6">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Controle de Acesso</h3>
+          <p class="feature-description">
+            Defina quem pode usar o ATLAS com whitelist
+            por contato e por grupo.
+          </p>
+          <div class="feature-tag">Seguro</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="section-header">
+        <span class="section-tag">02 / Processo</span>
+        <h2 class="section-title">Como Funciona</h2>
+        <p class="section-description">
+          Do comando à resposta em menos de 2 segundos.
+        </p>
+      </div>
+
+      <div class="workflow">
+        <div class="workflow-step" data-step="1">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Envie um Comando</h3>
+            <p>Digite "Atlas:" seguido da sua pergunta em qualquer chat do WhatsApp.</p>
+          </div>
+          <div class="step-visual">
+            <code>Atlas: resumo de hoje</code>
+          </div>
+        </div>
+
+        <div class="workflow-connector">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </div>
+
+        <div class="workflow-step" data-step="2">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>Processamento RAG</h3>
+            <p>O sistema analisa contexto com busca híbrida BM25 + embeddings vetoriais.</p>
+          </div>
+          <div class="step-visual">
+            <div class="processing-animation">
+              <span class="proc-dot"></span>
+              <span class="proc-dot"></span>
+              <span class="proc-dot"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="workflow-connector">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </div>
+
+        <div class="workflow-step" data-step="3">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Resposta Contextual</h3>
+            <p>GPT-4o-mini gera resposta inteligente baseada no contexto recuperado.</p>
+          </div>
+          <div class="step-visual">
+            <span class="response-badge">🤖 ATLAS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Command Examples -->
+      <div class="commands-showcase">
+        <h4 class="commands-title">Exemplos de Comandos</h4>
+        <div class="commands-grid">
+          <div class="command-card">
+            <span class="command-category">Temporal</span>
+            <code>Atlas: mensagens de ontem</code>
+          </div>
+          <div class="command-card">
+            <span class="command-category">Análise</span>
+            <code>Atlas: resumo desta semana</code>
+          </div>
+          <div class="command-card">
+            <span class="command-category">Busca</span>
+            <code>Atlas: o que João disse sobre o projeto?</code>
+          </div>
+          <div class="command-card">
+            <span class="command-category">Stats</span>
+            <code>Atlas: top 5 membros mais ativos</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics" id="metrics">
+      <div class="section-header">
+        <span class="section-tag">03 / Performance</span>
+        <h2 class="section-title">Números que importam</h2>
+        <p class="section-description">
+          Otimizado para velocidade e custo-eficiência.
+        </p>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card large">
+          <div class="metric-value">
+            <span class="metric-number" data-target="23">0</span>
+            <span class="metric-unit">ms</span>
+          </div>
+          <div class="metric-label">Tempo de Busca BM25</div>
+          <div class="metric-comparison">2000x mais rápido que embeddings</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-value">
+            <span class="metric-number" data-target="90">0</span>
+            <span class="metric-unit">%</span>
+          </div>
+          <div class="metric-label">Economia em Custos</div>
+          <div class="metric-comparison">Com cache inteligente</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-value">
+            <span class="metric-number" data-target="95">0</span>
+            <span class="metric-unit">%</span>
+          </div>
+          <div class="metric-label">Taxa de Precisão</div>
+          <div class="metric-comparison">Detecção de comandos</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-value">
+            <span class="metric-number" data-target="85">0</span>
+            <span class="metric-unit">%</span>
+          </div>
+          <div class="metric-label">Cache Hit Rate</div>
+          <div class="metric-comparison">Queries similares</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-value">
+            <span class="metric-prefix">&lt;</span>
+            <span class="metric-number" data-target="2">0</span>
+            <span class="metric-unit">s</span>
+          </div>
+          <div class="metric-label">Tempo de Resposta</div>
+          <div class="metric-comparison">End-to-end médio</div>
+        </div>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="tech-stack">
+        <span class="tech-label">Powered by</span>
+        <div class="tech-logos">
+          <div class="tech-item" title="Bun.js">
+            <span>Bun</span>
+          </div>
+          <div class="tech-item" title="PostgreSQL + pgvector">
+            <span>pgvector</span>
+          </div>
+          <div class="tech-item" title="Redis">
+            <span>Redis</span>
+          </div>
+          <div class="tech-item" title="OpenAI GPT-4o-mini">
+            <span>GPT-4o</span>
+          </div>
+          <div class="tech-item" title="LangChain.js">
+            <span>LangChain</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases" id="use-cases">
+      <div class="section-header">
+        <span class="section-tag">04 / Casos de Uso</span>
+        <h2 class="section-title">Para quem é o ATLAS</h2>
+      </div>
+
+      <div class="use-cases-grid">
+        <div class="use-case-card">
+          <div class="use-case-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3>Administradores de Grupos</h3>
+          <p>Delegue o monitoramento de conversas para um assistente AI que nunca dorme.</p>
+        </div>
+
+        <div class="use-case-card">
+          <div class="use-case-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <h3>Times de Suporte</h3>
+          <p>Identifique problemas e mudanças de sentimento dos clientes em tempo real.</p>
+        </div>
+
+        <div class="use-case-card">
+          <div class="use-case-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3>Analistas e Pesquisadores</h3>
+          <p>Analise padrões de conversação em escala sem revisão manual.</p>
+        </div>
+
+        <div class="use-case-card">
+          <div class="use-case-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3>Times de Vendas</h3>
+          <p>Nunca perca uma oportunidade - ATLAS alerta sobre menções importantes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="cta">
+      <div class="cta-content">
+        <h2 class="cta-title">
+          Pronto para transformar suas conversas?
+        </h2>
+        <p class="cta-description">
+          Comece a usar ATLAS hoje e descubra insights que
+          você nunca imaginou nas suas conversas do WhatsApp.
+        </p>
+
+        <div class="cta-actions">
+          <a href="https://github.com/saylorgabriel/atlas" class="btn-primary large" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            <span>Ver no GitHub</span>
+          </a>
+          <a href="#features" class="btn-secondary large">
+            <span>Explorar Features</span>
+          </a>
+        </div>
+
+        <div class="cta-footer">
+          <span class="cta-badge">Open Source</span>
+          <span class="cta-separator">•</span>
+          <span class="cta-text">Self-hosted • Seus dados, seu controle</span>
+        </div>
+      </div>
+
+      <!-- Background Pattern -->
+      <div class="cta-pattern"></div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </span>
+        <span>ATLAS</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://github.com/saylorgabriel/atlas" target="_blank" rel="noopener">GitHub</a>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">Como Funciona</a>
+      </div>
+
+      <div class="footer-copy">
+        <span>© 2024 ATLAS. Feito com</span>
+        <span class="heart">♥</span>
+        <span>por Saylor</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
