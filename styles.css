@@ -1427,6 +1427,16 @@ section {
   50% { transform: scale(1.2); }
 }
 
+.author-link {
+  color: var(--text-subtle);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.author-link:hover {
+  color: var(--accent-primary);
+}
+
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;

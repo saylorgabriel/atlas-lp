@@ -1,0 +1,47 @@
+# ATLAS - WhatsApp AI Copilot
+
+> Inteligência contextual integrada ao WhatsApp
+
+ATLAS transforma conversas do WhatsApp em insights acionáveis. É um copiloto de IA que analisa, responde e monitora conversas em tempo real.
+
+## Funcionalidades Principais
+
+- Chat Natural: Converse naturalmente direto no WhatsApp usando "Atlas:" como prefixo
+- Busca Híbrida: BM25 + embeddings vetoriais com resposta em 23ms
+- Insights Proativos: Detecta padrões e sentimentos automaticamente
+- Transcrição de Áudio: Whisper via Groq (90% mais barato que OpenAI)
+- Action Items: Extrai tarefas mencionadas nas conversas
+- Controle de Acesso: Whitelist por contato e grupo
+
+## Métricas de Performance
+
+- Tempo de busca: 23ms
+- Economia em custos: 90%
+- Taxa de precisão: 95%
+- Cache hit rate: 85%
+
+## Stack Tecnológico
+
+- Runtime: Bun.js + Elysia.js
+- Database: PostgreSQL + pgvector
+- Search: BM25 (FlexSearch) + Redis
+- AI: LangChain.js + GPT-4o-mini
+- WhatsApp: WUZAPI
+- Transcrição: Groq Whisper Large V3 Turbo
+
+## Casos de Uso
+
+- Equipes de Vendas: Análise de conversas com clientes
+- Suporte: Busca rápida em histórico de atendimentos
+- Comunidades: Moderação e insights de grupos
+- Pessoal: Organização de conversas e lembretes
+
+## Links
+
+- Landing Page: https://saylorgabriel.github.io/atlas-lp/
+- Repositório: https://github.com/saylorgabriel/jarvisinwhats
+- Autor: Saylor Gabriel (https://saylorgabriel.github.io/saylordamasceno/)
+
+## Licença
+
+Open Source - Self-hosted - Seus dados, seu controle.
