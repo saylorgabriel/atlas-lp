@@ -206,7 +206,7 @@ Posso detalhar algum ponto específico?`;
  */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
       e.preventDefault();
 
       const targetId = this.getAttribute('href');
@@ -296,7 +296,7 @@ function initParallax() {
  * Enhanced interactions on hover
  */
 document.querySelectorAll('.feature-card').forEach(card => {
-  card.addEventListener('mouseenter', function() {
+  card.addEventListener('mouseenter', function () {
     // Add slight scale to icon
     const icon = this.querySelector('.feature-icon');
     if (icon) {
@@ -304,7 +304,7 @@ document.querySelectorAll('.feature-card').forEach(card => {
     }
   });
 
-  card.addEventListener('mouseleave', function() {
+  card.addEventListener('mouseleave', function () {
     const icon = this.querySelector('.feature-icon');
     if (icon) {
       icon.style.transform = '';
@@ -317,7 +317,7 @@ document.querySelectorAll('.feature-card').forEach(card => {
  * Buttons slightly follow cursor
  */
 document.querySelectorAll('.btn-primary, .nav-cta').forEach(button => {
-  button.addEventListener('mousemove', function(e) {
+  button.addEventListener('mousemove', function (e) {
     const rect = this.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
@@ -326,7 +326,7 @@ document.querySelectorAll('.btn-primary, .nav-cta').forEach(button => {
     this.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
   });
 
-  button.addEventListener('mouseleave', function() {
+  button.addEventListener('mouseleave', function () {
     this.style.transform = '';
   });
 });
@@ -383,3 +383,155 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 console.log('%c🤖 ATLAS COPILOT', 'font-size: 24px; font-weight: bold; color: #10b981;');
 console.log('%cWhatsApp AI Copilot', 'font-size: 14px; color: #6ee7b7;');
 console.log('%cOpen source: github.com/saylorgabriel/atlas', 'font-size: 12px; color: #888;');
+
+/**
+ * Lead Capture Modal
+ * Handles modal open/close and form submission to Google Sheets
+ */
+
+// IMPORTANTE: Substitua esta URL pela URL do seu Google Apps Script
+// Veja as instruções no README para configurar
+const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwtAsYewMkjhyAC7ocwYZqtuwKnoTfXhTBYJm7rUad4wgWbZ54Nqo4lPCEHSwGh6WUC/exec';
+
+function initLeadModal() {
+  const modal = document.getElementById('leadModal');
+  const modalClose = document.getElementById('modalClose');
+  const leadForm = document.getElementById('leadForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const modalSuccess = document.getElementById('modalSuccess');
+
+  if (!modal || !leadForm) return;
+
+  // Open modal function
+  window.openLeadModal = function () {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Track event in GA4
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'modal_open', {
+        'event_category': 'lead_capture',
+        'event_label': 'lead_modal'
+      });
+    }
+  };
+
+  // Close modal function
+  window.closeLeadModal = function () {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  // Close button click
+  modalClose.addEventListener('click', closeLeadModal);
+
+  // Click outside to close
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeLeadModal();
+    }
+  });
+
+  // ESC key to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeLeadModal();
+    }
+  });
+
+  // Intercept CTA button clicks
+  document.querySelectorAll('a[href="#cta"], .nav-cta').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLeadModal();
+    });
+  });
+
+  // Form submission
+  leadForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('leadEmail').value.trim();
+    const whatsapp = document.getElementById('leadWhatsapp').value.trim();
+
+    if (!email) return;
+
+    // Show loading state
+    submitBtn.classList.add('loading');
+
+    try {
+      // Send to Google Sheets
+      if (GOOGLE_SHEETS_WEBHOOK_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+        await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: email,
+            whatsapp: whatsapp,
+            timestamp: new Date().toISOString(),
+            source: window.location.href
+          })
+        });
+      }
+
+      // Track conversion in GA4
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'lead_captured', {
+          'event_category': 'lead_capture',
+          'event_label': email
+        });
+      }
+
+      // Show success state
+      leadForm.classList.add('hidden');
+      modalSuccess.classList.add('show');
+
+      // Auto close after 3 seconds
+      setTimeout(() => {
+        closeLeadModal();
+        // Reset form for next use
+        setTimeout(() => {
+          leadForm.classList.remove('hidden');
+          modalSuccess.classList.remove('show');
+          leadForm.reset();
+        }, 300);
+      }, 3000);
+
+    } catch (error) {
+      console.error('Error submitting lead:', error);
+      // Still show success (form submitted via no-cors)
+      leadForm.classList.add('hidden');
+      modalSuccess.classList.add('show');
+    } finally {
+      submitBtn.classList.remove('loading');
+    }
+  });
+
+  // Phone input mask (Brazilian format)
+  const whatsappInput = document.getElementById('leadWhatsapp');
+  whatsappInput.addEventListener('input', (e) => {
+    let value = e.target.value.replace(/\D/g, '');
+
+    if (value.length > 11) {
+      value = value.slice(0, 11);
+    }
+
+    if (value.length > 0) {
+      if (value.length <= 2) {
+        value = `(${value}`;
+      } else if (value.length <= 7) {
+        value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+      } else {
+        value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
+      }
+    }
+
+    e.target.value = value;
+  });
+}
+
+// Initialize modal when DOM is ready
+document.addEventListener('DOMContentLoaded', initLeadModal);

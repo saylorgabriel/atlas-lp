@@ -590,6 +590,78 @@
   }
   </script>
 
+  <!-- Lead Capture Modal -->
+  <div class="modal-overlay" id="leadModal">
+    <div class="modal">
+      <button class="modal-close" id="modalClose" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <div class="modal-header">
+        <div class="modal-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h2 class="modal-title">Seja o primeiro a testar</h2>
+        <p class="modal-description">
+          O ATLAS ainda não está disponível publicamente.
+          Deixe seu contato e avisaremos quando estiver pronto.
+        </p>
+      </div>
+
+      <form class="modal-form" id="leadForm">
+        <div class="form-group">
+          <label for="leadEmail">Email *</label>
+          <input
+            type="email"
+            id="leadEmail"
+            name="email"
+            placeholder="seu@email.com"
+            required
+            autocomplete="email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="leadWhatsapp">WhatsApp <span class="optional">(opcional)</span></label>
+          <input
+            type="tel"
+            id="leadWhatsapp"
+            name="whatsapp"
+            placeholder="(11) 99999-9999"
+            autocomplete="tel"
+          >
+        </div>
+
+        <button type="submit" class="btn-primary modal-submit" id="submitBtn">
+          <span>Quero ser avisado</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <p class="form-disclaimer">
+          Seus dados estão seguros. Sem spam, prometemos.
+        </p>
+      </form>
+
+      <div class="modal-success" id="modalSuccess">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+        </div>
+        <h3>Você está na lista!</h3>
+        <p>Avisaremos assim que o ATLAS estiver disponível.</p>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="script.js"></script>
 </body>
