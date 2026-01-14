@@ -6,7 +6,7 @@ ATLAS transforma conversas do WhatsApp em insights acionáveis. É um copiloto d
 
 ## Funcionalidades Principais
 
-- Chat Natural: Converse naturalmente direto no WhatsApp usando "Atlas:" como prefixo
+- Chat Natural: Converse naturalmente direto no WhatsApp usando "Atlas Copilot:" como prefixo
 - Busca Híbrida: BM25 + embeddings vetoriais com resposta em 23ms
 - Insights Proativos: Detecta padrões e sentimentos automaticamente
 - Transcrição de Áudio: Whisper via Groq (90% mais barato que OpenAI)

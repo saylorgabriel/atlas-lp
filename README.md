@@ -11,12 +11,12 @@ ATLAS transforma suas conversas do WhatsApp em insights acionáveis. É um copil
 ### Como usar
 
 ```
-Atlas: resumo das últimas 50 mensagens
-Atlas: o que João disse sobre o projeto?
-Atlas: top 5 membros mais ativos hoje
+Atlas Copilot: resumo das últimas 50 mensagens
+Atlas Copilot: o que João disse sobre o projeto?
+Atlas Copilot: top 5 membros mais ativos hoje
 ```
 
-Basta mencionar `Atlas:` seguido da sua pergunta em qualquer chat.
+Basta mencionar `Atlas Copilot:` seguido da sua pergunta em qualquer chat.
 
 ---
 
