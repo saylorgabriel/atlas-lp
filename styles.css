@@ -2036,3 +2036,121 @@ section {
     font-size: 12px;
   }
 }
+
+/* ==========================================
+   LANGUAGE SELECTOR
+   ========================================== */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.language-selector {
+  position: relative;
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+}
+
+.lang-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 140px;
+  background: var(--bg-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.2s ease;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.language-selector:hover .lang-dropdown,
+.language-selector:focus-within .lang-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 13px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.lang-option:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+.lang-option.active {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--accent);
+}
+
+.lang-flag {
+  font-weight: 600;
+  font-size: 11px;
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.5px;
+}
+
+.lang-option.active .lang-flag {
+  background: rgba(16, 185, 129, 0.2);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .nav-right {
+    gap: var(--space-2);
+  }
+
+  .lang-btn span {
+    display: none;
+  }
+
+  .lang-btn {
+    padding: var(--space-2);
+  }
+
+  .lang-dropdown {
+    right: -20px;
+  }
+}
