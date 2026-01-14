@@ -382,7 +382,7 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
  */
 console.log('%c🤖 ATLAS COPILOT', 'font-size: 24px; font-weight: bold; color: #10b981;');
 console.log('%cWhatsApp AI Copilot', 'font-size: 14px; color: #6ee7b7;');
-console.log('%cOpen source: github.com/saylorgabriel/atlas', 'font-size: 12px; color: #888;');
+// console.log('%cOpen source: github.com/saylorgabriel/atlas', 'font-size: 12px; color: #888;');
 
 /**
  * Lead Capture Modal
