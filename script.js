@@ -336,8 +336,8 @@ document.querySelectorAll('.btn-primary, .nav-cta').forEach(button => {
  * Add new messages periodically
  */
 const terminalMessages = [
-  { author: 'Maria', text: 'Atlas: quem mais falou hoje?', time: '14:35' },
-  { author: '🤖 ATLAS', text: 'Os 3 mais ativos hoje:\n1. João (45 msgs)\n2. Pedro (32 msgs)\n3. Ana (28 msgs)', time: '14:35', isAtlas: true }
+  { author: 'Maria', text: 'Atlas Copilot: quem mais falou hoje?', time: '14:35' },
+  { author: '🤖 ATLAS COPILOT', text: 'Os 3 mais ativos hoje:\n1. João (45 msgs)\n2. Pedro (32 msgs)\n3. Ana (28 msgs)', time: '14:35', isAtlas: true }
 ];
 
 let messageIndex = 0;
@@ -380,6 +380,6 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 /**
  * Console Easter Egg
  */
-console.log('%c🤖 ATLAS', 'font-size: 24px; font-weight: bold; color: #10b981;');
+console.log('%c🤖 ATLAS COPILOT', 'font-size: 24px; font-weight: bold; color: #10b981;');
 console.log('%cWhatsApp AI Copilot', 'font-size: 14px; color: #6ee7b7;');
 console.log('%cOpen source: github.com/saylorgabriel/atlas', 'font-size: 12px; color: #888;');
