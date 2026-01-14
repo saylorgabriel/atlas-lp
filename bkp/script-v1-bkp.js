@@ -148,126 +148,56 @@ function triggerCounters() {
 }
 
 /**
- * Terminal Demo Scenarios
- * Shows different use cases in a loop
+ * Typing Animation
+ * Simulates ATLAS response in terminal
  */
-const demoScenarios = [
-  {
-    question: 'Atlas: status do projeto Alpha?',
-    answer: `📊 Projeto Alpha — Status Consolidado:
-
-• Progresso: 73% concluído (+12% essa semana)
-• Margem projetada: R$ 45k (+39% vs estimativa)
-• 3 entregas pendentes até sexta-feira
-• ⚠️ Rodrigo aguardando aprovação do orçamento
-
-Quer que eu detalhe as entregas pendentes?`
-  },
-  {
-    question: 'Atlas: quais compromissos essa semana?',
-    answer: `📅 Compromissos consolidados da semana:
-
-• Terça 10h — Review com cliente (Projeto Alpha)
-• Quarta 14h — Deadline proposta comercial
-• Quinta 16h — Call com fornecedor
-• Sexta — Entrega fase 2
-
-⚡ Ana precisa dos assets até amanhã`
-  },
-  {
-    question: 'Atlas: pontos de atenção do time?',
-    answer: `⚠️ 3 pontos que precisam da sua atenção:
-
-1. Pedro bloqueado esperando API do parceiro
-2. Orçamento do cliente vence em 2 dias
-3. Maria pediu feedback na proposta (há 3 dias)
-
-Quer que eu priorize por urgência?`
-  },
-  {
-    question: 'Atlas: resumo da reunião de ontem?',
-    answer: `📝 Reunião de Alinhamento (ontem, 15h):
-
-• Decisão: lançamento adiado para dia 20
-• Budget aprovado: R$ 32k para marketing
-• Próximos passos: João faz cronograma até sexta
-• Pendência: aguardando contrato assinado
-
-Participantes: João, Maria, Pedro, Cliente`
-  }
-];
-
-let currentScenario = 0;
-
 function initTypingAnimation() {
-  const terminalBody = document.querySelector('.terminal-body');
-  if (!terminalBody) return;
+  const atlasResponse = document.getElementById('atlasResponse');
+  if (!atlasResponse) return;
 
-  function showScenario(index) {
-    const scenario = demoScenarios[index];
+  const responseText = `Aqui está o resumo das últimas 50 mensagens:
 
-    // Clear terminal
-    terminalBody.innerHTML = '';
+• 12 mensagens sobre o projeto Alpha
+• 8 menções de reunião amanhã às 14h
+• 5 action items pendentes
+• Sentimento geral: positivo (78%)
 
-    // Create question message
-    const questionMsg = document.createElement('div');
-    questionMsg.className = 'message incoming';
-    questionMsg.innerHTML = `
-      <span class="message-author">João</span>
-      <span class="message-text">${scenario.question}</span>
-      <span class="message-time">14:32</span>
-    `;
-    terminalBody.appendChild(questionMsg);
+Posso detalhar algum ponto específico?`;
 
-    // Create answer message with typing indicator
-    const answerMsg = document.createElement('div');
-    answerMsg.className = 'message outgoing typing';
-    answerMsg.innerHTML = `
-      <span class="message-author">🤖 ATLAS COPILOT</span>
-      <span class="message-text">
-        <span class="typing-indicator">
-          <span></span><span></span><span></span>
-        </span>
-      </span>
-    `;
-    terminalBody.appendChild(answerMsg);
+  // Wait 3 seconds then show response
+  setTimeout(() => {
+    const messageText = atlasResponse.querySelector('.message-text');
+    if (!messageText) return;
 
-    // Start typing after delay
-    setTimeout(() => {
-      const messageText = answerMsg.querySelector('.message-text');
-      messageText.innerHTML = '';
-      answerMsg.classList.remove('typing');
+    // Clear typing indicator
+    messageText.innerHTML = '';
 
-      let charIndex = 0;
-      const typeSpeed = 18;
+    let charIndex = 0;
+    const typeSpeed = 20; // ms per character
 
-      function type() {
-        if (charIndex < scenario.answer.length) {
-          const char = scenario.answer[charIndex];
-          messageText.innerHTML += char === '\n' ? '<br>' : char;
-          charIndex++;
-          setTimeout(type, typeSpeed);
+    function type() {
+      if (charIndex < responseText.length) {
+        const char = responseText[charIndex];
+
+        if (char === '\n') {
+          messageText.innerHTML += '<br>';
         } else {
-          // Add time after typing
-          const timeSpan = document.createElement('span');
-          timeSpan.className = 'message-time';
-          timeSpan.textContent = '14:33';
-          answerMsg.appendChild(timeSpan);
-
-          // Wait then show next scenario
-          setTimeout(() => {
-            currentScenario = (currentScenario + 1) % demoScenarios.length;
-            showScenario(currentScenario);
-          }, 5000); // 5s pause before next
+          messageText.innerHTML += char;
         }
+
+        charIndex++;
+        setTimeout(type, typeSpeed);
+      } else {
+        // Add time after typing completes
+        const timeSpan = document.createElement('span');
+        timeSpan.className = 'message-time';
+        timeSpan.textContent = '14:33';
+        atlasResponse.appendChild(timeSpan);
       }
+    }
 
-      type();
-    }, 2000); // 2s typing indicator
-  }
-
-  // Start first scenario
-  setTimeout(() => showScenario(0), 1000);
+    type();
+  }, 3000);
 }
 
 /**
@@ -401,7 +331,42 @@ document.querySelectorAll('.btn-primary, .nav-cta').forEach(button => {
   });
 });
 
-// Terminal demo scenarios are now handled by initTypingAnimation() with loop
+/**
+ * Terminal Messages Animation
+ * Add new messages periodically
+ */
+const terminalMessages = [
+  { author: 'Maria', text: 'Atlas: quem mais falou hoje?', time: '14:35' },
+  { author: '🤖 ATLAS COPILOT', text: 'Os 3 mais ativos hoje:\n1. João (45 msgs)\n2. Pedro (32 msgs)\n3. Ana (28 msgs)', time: '14:35', isAtlas: true }
+];
+
+let messageIndex = 0;
+
+function addTerminalMessage() {
+  const terminalBody = document.querySelector('.terminal-body');
+  if (!terminalBody || messageIndex >= terminalMessages.length) return;
+
+  const msg = terminalMessages[messageIndex];
+
+  const messageEl = document.createElement('div');
+  messageEl.className = `message ${msg.isAtlas ? 'outgoing' : 'incoming'}`;
+  messageEl.innerHTML = `
+    <span class="message-author">${msg.author}</span>
+    <span class="message-text">${msg.text.replace(/\n/g, '<br>')}</span>
+    <span class="message-time">${msg.time}</span>
+  `;
+
+  terminalBody.appendChild(messageEl);
+  messageIndex++;
+
+  // Scroll to bottom
+  terminalBody.scrollTop = terminalBody.scrollHeight;
+}
+
+// Add messages after initial typing animation
+setTimeout(() => {
+  setInterval(addTerminalMessage, 5000);
+}, 10000);
 
 /**
  * Performance: Reduce animations on low-power devices
