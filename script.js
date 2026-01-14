@@ -336,7 +336,7 @@ document.querySelectorAll('.btn-primary, .nav-cta').forEach(button => {
  * Add new messages periodically
  */
 const terminalMessages = [
-  { author: 'Maria', text: 'Atlas Copilot: quem mais falou hoje?', time: '14:35' },
+  { author: 'Maria', text: 'Atlas: quem mais falou hoje?', time: '14:35' },
   { author: '🤖 ATLAS COPILOT', text: 'Os 3 mais ativos hoje:\n1. João (45 msgs)\n2. Pedro (32 msgs)\n3. Ana (28 msgs)', time: '14:35', isAtlas: true }
 ];
 
