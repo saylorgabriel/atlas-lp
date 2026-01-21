@@ -518,6 +518,8 @@ function initLeadModal() {
           'event_category': 'lead_capture',
           'event_label': email
         });
+        // Google Ads conversion tracking
+        gtag('event', 'conversion', { 'send_to': 'AW-975619354/E3PzCPqp9OYBEJqKm9ED' });
       }
 
       // Show success state
