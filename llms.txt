@@ -38,7 +38,7 @@ ATLAS transforma conversas do WhatsApp em insights acionáveis. É um copiloto d
 
 ## Links
 
-- Landing Page: https://saylorgabriel.github.io/atlas-lp/
+- Landing Page: https://atlascopilot.com.br/
 - Repositório: https://github.com/saylorgabriel/jarvisinwhats
 - Autor: Saylor Gabriel (https://saylorgabriel.github.io/saylordamasceno/)
 

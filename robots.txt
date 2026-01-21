@@ -1,11 +1,11 @@
 # ATLAS - WhatsApp AI Copilot
-# https://saylorgabriel.github.io/atlas-lp/
+# https://atlascopilot.com.br/
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://saylorgabriel.github.io/atlas-lp/sitemap.xml
+Sitemap: https://atlascopilot.com.br/sitemap.xml
 
 # LLMs.txt - AI-friendly content description
 # https://llmstxt.org/
