@@ -164,25 +164,52 @@ const demoScenarios = [
 Quer que eu detalhe as entregas pendentes?`
   },
   {
-    question: 'Atlas: quais compromissos essa semana?',
-    answer: `📅 Compromissos consolidados da semana:
+    question: 'Atlas: me lembre do aniversário da Carol no sábado de manhã',
+    answer: `✅ Lembrete agendado!
 
-• Terça 10h — Review com cliente (Projeto Alpha)
-• Quarta 14h — Deadline proposta comercial
-• Quinta 16h — Call com fornecedor
-• Sexta — Entrega fase 2
+🎂 Aniversário da Carol
+📅 Sábado, 08:00
 
-⚡ Ana precisa dos assets até amanhã`
+Vou te avisar no sábado às 8h da manhã.
+
+Quer que eu sugira uma mensagem de parabéns?`
   },
   {
-    question: 'Atlas: pontos de atenção do time?',
-    answer: `⚠️ 3 pontos que precisam da sua atenção:
+    question: 'Atlas: agende um alerta para emitir notas todo dia 1',
+    answer: `✅ Alerta recorrente criado!
 
-1. Pedro bloqueado esperando API do parceiro
-2. Orçamento do cliente vence em 2 dias
-3. Maria pediu feedback na proposta (há 3 dias)
+📋 Emitir notas fiscais
+🔄 Todo dia 1 de cada mês, às 09:00
 
-Quer que eu priorize por urgência?`
+Próximo alerta: 01/02 às 09:00
+
+Posso adicionar mais detalhes ao lembrete?`
+  },
+  {
+    question: 'Atlas: previsão do tempo em Floripa esse fim de semana?',
+    answer: `🌤️ Florianópolis — Fim de Semana:
+
+Sábado:
+• ☀️ 28°C, sol com algumas nuvens
+• 💧 10% chance de chuva
+• 🌊 Mar calmo, ótimo pra praia!
+
+Domingo:
+• ⛅ 26°C, parcialmente nublado
+• 💧 30% chance de chuva à tarde
+
+Quer que eu avise se a previsão mudar?`
+  },
+  {
+    question: 'Atlas: posta no Twitter: Lançando o Atlas em breve! 🚀',
+    answer: `✅ Tweet publicado com sucesso!
+
+🐦 @seuuser:
+"Lançando o Atlas em breve! 🚀"
+
+📊 Você pode acompanhar as métricas depois.
+
+Quer agendar mais posts?`
   },
   {
     question: 'Atlas: resumo da reunião de ontem?',
