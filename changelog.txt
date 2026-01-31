@@ -1,0 +1,35 @@
+================================================================================
+ATLAS COPILOT - CHANGELOG
+================================================================================
+
+[2026-01-30]
+------------
+• Blog multilíngue criado (PT/EN/ES)
+  - /blog/ - Artigo sobre Agentes Autônomos de IA
+  - /blog/en/ - English translation
+  - /blog/es/ - Spanish translation
+• Seletor de idioma adicionado ao blog
+• Sitemap atualizado com URLs do blog
+• Cenários do terminal demo atualizados
+  - Lembrete de aniversário
+  - Alerta recorrente (notas fiscais)
+  - Previsão do tempo
+  - Post no Twitter
+• Link do blog adicionado na nav e footer (todas as versões)
+
+[2026-01-29]
+------------
+• Atualização Otrix Labs no footer
+• URLs migradas para atlascopilot.com.br
+• Favicons PNG adicionados para Google Search
+• Google Ads conversion tracking implementado
+
+[2026-01-28]
+------------
+• Landing page inicial publicada
+• Versões EN/ES da LP
+• Modal de captura de leads
+• Integração Google Sheets webhook
+• Google Analytics 4 configurado
+
+================================================================================
